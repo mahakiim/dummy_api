@@ -5,3 +5,7 @@ numpy
 joblib      
 gunicorn    
 python-dotenv
+requests
+firebase-admin
+APScheduler
+python-dotenv

@@ -1,15 +1,23 @@
 from flask import Flask
+from apscheduler.schedulers.background import BackgroundScheduler
 from flasgger import Swagger
 from controllers.predict import predict_bp
-from controllers.bmkg_controller import bmkg_bp
+# from controllers.bmkg_controller import bmkg_bp
+from controllers.weather_controller import weather_bp, schedule_job
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app)
+Swagger(app)
 
 app.register_blueprint(predict_bp, url_prefix='/api')
-app.register_blueprint(bmkg_bp,    url_prefix='/api')
+# app.register_blueprint(bmkg_bp,    url_prefix='/api')
+app.register_blueprint(weather_bp,  url_prefix='/api')
 
-Swagger(app) 
 
 if __name__ == '__main__':
-    app.run()
+    scheduler = BackgroundScheduler()
+    schedule_job(scheduler)
+    scheduler.start()
+    app.run(host="0.0.0.0", port=5000)
