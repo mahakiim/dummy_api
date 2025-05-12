@@ -3,6 +3,7 @@
 import firebase_admin
 from firebase_admin import credentials, db
 from model.bmkg_api import fetch_all_locations
+from controllers import predict
 
 # Inisialisasi Firebase cuma sekali
 if not firebase_admin._apps:
