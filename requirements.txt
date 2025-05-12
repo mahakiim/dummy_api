@@ -9,3 +9,8 @@ requests
 firebase-admin
 APScheduler
 python-dotenv
+flask
+firebase-admin
+numpy
+joblib
+requests

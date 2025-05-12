@@ -8,7 +8,7 @@ from controllers import predict
 # Inisialisasi Firebase cuma sekali
 if not firebase_admin._apps:
     cred = credentials.Certificate(
-        "floody-252ef-firebase-adminsdk-fbsvc-2b5138719e.json"
+        "floody-252ef-firebase-adminsdk-fbsvc-19378a91dd.json"
     )
     firebase_admin.initialize_app(cred, {
         "databaseURL": "https://floody-252ef-default-rtdb.asia-southeast1.firebasedatabase.app/"
